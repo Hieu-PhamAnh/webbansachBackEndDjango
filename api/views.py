@@ -126,10 +126,15 @@ def createAccount(request):
 def loginAccount(request):
     data = request.data
     print(data.username)
-    account = get_object_or_404(Account,data = data.username)
-    if(data.password == account.password):
+    account = Account.objects.get(username = data['username'])
+    if(data['password'] == account.password):
         serializer = AccountSerializer(account, many= False)   
         return Response(serializer) 
     else:
         return Response(status=404)
+    
+#Order
+# @api_view(['Get'])
+# def getOrdersBody(request):
+#     orders = Order.objects.get()
     

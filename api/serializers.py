@@ -20,3 +20,13 @@ class CollectionSerializer(ModelSerializer):
     class Meta:
         model = Collection
         fields = '__all__'
+
+class OrderSerializer(ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
+class OrderItemSerializer(ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = '__all__'     
